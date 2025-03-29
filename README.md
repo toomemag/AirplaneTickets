@@ -16,4 +16,12 @@ seal "Create" -> "Database...". Avanenud aknas tuleb anda Database lüngale nimi
 <h2>Intellij IDEA</h2>
 Nüüd kui andmebaas üles seatud, avame projekti kausta Intellij projektina. Kaust avatud tuleb veenduda, et oleks kõige uuem Intellij versioon ja project structure oleks selline: ![ProjektStructure](/images/struktuur.png)
 <br>
-Nüüd kui struktuur on laetud, tuleb muuta "application.properties" väärtusi,
+Nüüd kui struktuur on laetud, tuleb muuta "application.properties" ![properties](/images/properties.png) väärtusi, fail asub "/src/main/resources/" kaustas. Selles failis tuleb muuta väärtusi.
+<br><h4>Failisisu:</h4>![PortPassword](/images/paroolProt.png)
+<br>
+Väärtused mida muuta tuleb on rohelise kastikesega tähistatud:<br>
+spring.datasource.url=jdbc:postgresql://localhost:{Sinu PORT}/lennuddb<br>
+ja<br>
+spring.datasource.password={Sinu parool}
+<br>
+
