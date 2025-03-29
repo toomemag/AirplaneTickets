@@ -19,9 +19,20 @@ Nüüd kui andmebaas üles seatud, avame projekti kausta Intellij projektina. Ka
 Nüüd kui struktuur on laetud, tuleb muuta "application.properties" ![properties](/images/properties.png) väärtusi, fail asub "/src/main/resources/" kaustas. Selles failis tuleb muuta väärtusi.
 <br><h4>Failisisu:</h4>![PortPassword](/images/paroolProt.png)
 <br>
-Väärtused mida muuta tuleb on rohelise kastikesega tähistatud:<br>
-spring.datasource.url=jdbc:postgresql://localhost:{Sinu PORT}/lennuddb<br>
+<h3>Väärtused mida muuta tuleb on rohelise kastikesega tähistatud:</h3>
+spring.datasource.url=jdbc:postgresql://localhost:<strong>{Sinu PORT}</strong>/lennuddb<br>
 ja<br>
-spring.datasource.password={Sinu parool}
+spring.datasource.password=<strong>{Sinu parool}</strong>
 <br>
 
+Nüüd kui see on tehtud, avada kaust "/src/main/java/org.example.airplanetickets/" ja avada klass "AirplaneTicketsApplication". <br>![AirplaneTicketsApp](/images/application.png)
+<br> Klass avatud, tuleb vajutada: ![jooksuta](/images/jooksuta.png)<br>
+Peale jooksutamist minna [siia](http://localhost:8080/lennud), ja voila, oledki minu programmis.
+<br>
+Programmis on võimalik filtreerida lende erinevate filtrite põhjal, ja kõik lennud on klikitavad.
+<br>![lennuuuud](/images/lennnnnuud.png)
+Peale lennule klikkimist, on võimalik valitud lennu istumisgraafikut näha, ja valida kohta vastavalt filtreeringutele(kas on rohkema jalaruumiga, on väljapääsu lähedal või on aknaall), pilteteid saab veel vaadata ka kahele inimesele. ![leend](/images/lend.png)<br>
+
+<h5>See oli minu programm, tänan vaatamast.</h5>
+
+<h5>Erki Toomemägi</h5>
