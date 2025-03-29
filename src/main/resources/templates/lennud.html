@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lennud</title>
+    <link rel="stylesheet" th:href="@{/css/lennud_styles.css}" />
+</head>
+<body>
+<h1>Saadaval lennud</h1>
+<div class="filters">
+    <form th:action="@{/lennud}" method="get">
+        <div class="filter-group">
+            <label for="kuupaev">Kuupäev:</label>
+            <select id="kuupaev" name="kuupaev">
+                <option value="">Kõik</option>
+                <option value="2025-04-09">2025-04-09</option>
+                <option th:each="paev : ${kuupaevad}" th:value="${paev}" th:text="${paev}"></option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="lennuaeg">Lennu aeg</label>
+            <select id="lennuaeg" name="lennuaeg">
+                <option value="">Kõik</option>
+                <option th:each="aeg : ${lennuajad}" th:value="${aeg}" th:text="${aeg}"></option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="sihtkoht">Sihtkoht</label>
+            <select id="sihtkoht" name="sihtkoht">
+                <option value="">Kõik</option>
+                <option th:each="siht : ${sihtkohad}" th:value="${siht}" th:text="${siht}"></option>
+            </select>
+        </div>
+        <button type="submit">Filtreeri</button>
+    </form>
+</div>
+<div class="lendude-container">
+    <div th:each="lennud : ${lennudList}" class="lennud-box">
+        <a th:href="@{/lennud/{id}/istekohad(id=${lennud.id})}">
+            <p><STRONG>Lähtekoht:</STRONG> Tallinn</p>
+            <p><strong>Sihtkoht:</strong> <span th:text="${lennud.sihtkoht}">Destination</span></p>
+            <p><strong>Lennu aeg:</strong> <span th:text="${lennud.lennuaeg}">Departure Time</span></p>
+            <p><strong>Kuupäev:</strong> <span th:text="${lennud.kuupäev}">Date</span></p>
+            <p><strong>Hind:</strong> <span th:text="${lennud.hind + ' €'}">Price</span></p>
+        </a>
+    </div>
+</div>
+</body>
+</html>

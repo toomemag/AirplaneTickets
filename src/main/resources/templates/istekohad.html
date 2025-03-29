@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Istekohtade broneerimine</title>
+    <link rel="stylesheet" th:href="@{/css/istekohad_styles.css}"
+</head>
+<body>
+<h1>Istekohtade broneerimine</h1>
+<div id="istekohad-container">
+    <div id="lennuInfo">
+        <h2>Lennu info</h2>
+
+        <p><strong>Lennu number:</strong> <span th:text="${lend.id}"></span></p>
+        <p><strong>Väljumisaeg:</strong> <span th:text="${lend.lennuaeg}"></span></p>
+        <p><strong>Lähtekoht:</strong> <span> Tallinn</span></p>
+        <p><strong>Sihtkoht:</strong> <span th:text="${lend.sihtkoht}"></span></p>
+        <p><strong>Kuupäev:</strong> <span th:text="${lend.kuupäev}"></span></p>
+        <p><strong>Hind:</strong> <span th:text="${lend.hind + ' €'}"></span></p>
+    </div>
+
+    <div id="filterOptions">
+        <label><input type="checkbox" id="jalaruumFilter" onchange="filterSeats()"> Jalaruum</label>
+        <label><input type="checkbox" id="akenFilter" onchange="filterSeats()"> Aken</label>
+        <label><input type="checkbox" id="väljapääsFilter" onchange="filterSeats()"> Väljapääs</label>
+        <label><input type="checkbox" id="kaksInimestFilter" onchange="filterSeats()"> Kaks inimest</label>
+    </div>
+
+    <table>
+        <tr>
+            <th></th>
+            <th th:each="colNum : ${'A,B,C,D,E,F'.split(',')}">[[${colNum}]]</th>
+        </tr>
+
+        <tr th:each="rowLabel : ${#numbers.sequence(1, 7)}">
+            <th>[[${rowLabel}]]</th>
+            <td th:each="colNum : ${'A,B,C,D,E,F'.split(',')}"
+                th:with="istmeId=${colNum + rowLabel}"
+                th:classappend="${istmed.containsKey(istmeId) && istmed.get(istmeId).on_vaba} ? 'vaba' : 'hõivatud'"
+                th:data-istme-number="${istmeId}"
+                th:data-vaba="${istmed.containsKey(istmeId) ? istmed.get(istmeId).on_vaba : false}"
+                th:data-jalaruum="${istmed.containsKey(istmeId) ? istmed.get(istmeId).on_jalaruum : false}"
+                th:data-aken="${istmed.containsKey(istmeId) ? istmed.get(istmeId).on_aknaall : false}"
+                th:data-väljapääs="${istmed.containsKey(istmeId) ? istmed.get(istmeId).on_valjapaas : false}"
+                onclick="valiIste(this)">
+                <span th:text="${istmeId}"></span>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="istmeDetailid">
+    <h2 id="istmeNumber"></h2>
+    <p id="vaba"></p>
+    <p id="jalaruum"></p>
+    <p id="aken"></p>
+    <p id="väljapääs"></p>
+    <button onclick="sulgeDetailid()">Sulge</button>
+</div>
+
+<button id="tagasiNupp" onclick="tagasiLennud()">Tagasi lendude lehele</button>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

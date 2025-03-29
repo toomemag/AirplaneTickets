@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#LennuInfo {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#lennuInfo h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#lennuInfo p {
+    margin-bottom: 5px;
+
+}
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+th {
+    background-color: #f2f2f2;
+}
+.vaba {
+    background-color: #a8e0a0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.vaba:hover {
+    background-color: #76c647;
+}
+.hõivatud {
+    background-color: #e57373;
+}
+.valitud {
+    border: 2px solid #5090f8;
+}
+.filtreeritud {
+    background-color: lightblue;
+}
+#istmeDetailid {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+#istmeDetailid button {
+    background-color: #2979ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#istmeDetailid button:hover {
+    background-color: #1e88e5;
+}
+#filterOptions {
+    margin-bottom: 20px;
+}
+#tagasiNupp {
+    margin-top: 20px;
+    background-color: #2979ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#tagasiNupp:hover {
+    background-color: #1e88e5;
+}
